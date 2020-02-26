@@ -1,0 +1,43 @@
+{
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "raw": {
+            "type": "keyword"
+          }
+        },
+        "analyzer": "pinyin_analyzer",
+        "search_analyzer": "pinyin_analyzer"
+      },
+      "age": {
+        "type": "integer"
+      },
+      "sex": {
+        "type": "keyword",
+        "ignore_above": 4
+      },
+      "address": {
+        "type": "text",
+        "analyzer": "ik_max_word",
+        "search_analyzer": "ik_smart"
+      },
+      "phone": {
+        "type": "keyword",
+        "ignore_above": 13
+      },
+      "detail_info": {
+        "type": "text",
+        "analyzer": "ik_max_word",
+        "search_analyzer": "ik_smart"
+      },
+      "created_time": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+        "ignore_malformed": true
+      }
+    }
+}

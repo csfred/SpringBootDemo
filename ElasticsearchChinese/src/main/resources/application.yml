@@ -1,0 +1,24 @@
+spring:
+  elasticsearch:
+    cluster:
+      #cluster-name: #默认为elasticsearch
+      name: app-elasticsearch
+      #index 名称
+      index: student
+      #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+      #（9200端口是http查询使用的。9300集群使用。.）
+      nodes: 192.168.1.107:9200
+      #集群主机地址
+      host: 192.168.1.107
+      #端口号
+      port: 9200
+      #请求模式
+      scheme: http
+    #elasticsearch日志存储目录
+    logs: /home/elasticsearch/path/to/logs
+    #elasticsearch数据存储目录
+    data: /home/elasticsearch/path/to/data
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+server:
+  port: 8081

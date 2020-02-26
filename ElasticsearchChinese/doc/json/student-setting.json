@@ -1,0 +1,44 @@
+{
+  "analysis": {
+    "filter": {
+      "edge_ngram_filter": {
+        "type": "edge_ngram",
+        "min_gram": 1,
+        "max_gram": 50
+      }
+    },
+    "char_filter": {
+      "tsconvert": {
+        "type": "stconvert",
+        "convert_type": "t2s"
+      }
+    },
+    "analyzer": {
+      "ik_analyzer": {
+        "type": "custom",
+        "tokenizer": "ik_max_word",
+        "char_filter": [
+          "tsconvert"
+        ]
+      },
+      "pinyin_analyzer": {
+        "tokenizer": "token_pinyin",
+        "filter": [
+          "edge_ngram_filter",
+          "lowercase"
+        ]
+      }
+    },
+    "tokenizer": {
+      "token_pinyin": {
+        "type": "pinyin",
+        "keep_separate_first_letter": false,
+        "keep_full_pinyin": true,
+        "keep_original": true,
+        "limit_first_letter_length": 16,
+        "lowercase": true,
+        "remove_duplicated_term": true
+      }
+    }
+  }
+}
